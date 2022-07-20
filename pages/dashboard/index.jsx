@@ -1,13 +1,13 @@
-import Layout from '../components/Guest/Layout'
-import Post from '../components/Post'
+import Layout from '../../components/Auth/Layout'
+import Post from '../../components/Post'
 
-const Drafts = props => {
+const Blog = props => {
   return (
     <Layout>
       <div className="page">
-        <h1>Drafts</h1>
+        <h1>My Blog</h1>
         <main>
-          {props.drafts.map(post => (
+          {props.feed.map(post => (
             <div key={post.id} className="post">
               <Post post={post} />
             </div>
@@ -33,11 +33,11 @@ const Drafts = props => {
 }
 
 export const getServerSideProps = async () => {
-  const res = await fetch('http://localhost:3000/api/drafts')
-  const drafts = await res.json()
+  const res = await fetch('http://localhost:3000/api/feed')
+  const feed = await res.json()
   return {
-    props: { drafts },
+    props: { feed },
   }
 }
 
-export default Drafts
+export default Blog

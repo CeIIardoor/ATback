@@ -1,27 +1,27 @@
 import React, { useState } from 'react'
 import Router from 'next/router'
-import Layout from '../components/Layout'
+import Layout from '../components/Guest/Layout'
 
 var crypto = require('crypto');
 
 
 
-const SignUp = () => {
-  const [name, setName] = useState('')
+const Signin = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
 
   const submitData = async e => {
     e.preventDefault()
     try {
       password = crypto.createHash('md5').update(password).digest('hex')
-      const body = { name, email, password }
-      await fetch(`/api/user`, {
+      const body = { email, password }
+      await fetch(`/api/user/signin`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
       })
-      await Router.push('/')
+      await Router.push('/dashboard')
     } catch (error) {
       console.error(error)
     }
@@ -32,14 +32,7 @@ const SignUp = () => {
       <div className="page">
         <form
           onSubmit={submitData}>
-          <h1>S'enregistrer</h1>
-          <input
-            autoFocus
-            onChange={e => setName(e.target.value)}
-            placeholder="Nom"
-            type="text"
-            value={name}
-          />
+          <h1>Se connecter</h1>
           <input
             onChange={e => setEmail(e.target.value)}
             placeholder="Email address"
@@ -53,9 +46,9 @@ const SignUp = () => {
             value={password}
           />
           <input
-            disabled={!name || !email || !password}
+            disabled={ !email || !password }
             type="submit"
-            value="S'enregistrer"
+            value="Se connecter"
           />
           <a className="back" href="/" onClick={() => Router.push('/')}>
             or Cancel
@@ -92,4 +85,4 @@ const SignUp = () => {
   )
 }
 
-export default SignUp
+export default Signin

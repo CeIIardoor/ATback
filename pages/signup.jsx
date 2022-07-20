@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Router from 'next/router'
-import Layout from '../components/Layout'
+import Layout from '../components/Guest/Layout'
 
 var crypto = require('crypto');
 
@@ -18,7 +18,7 @@ const SignUp = () => {
     try {
       password = crypto.createHash('md5').update(password).digest('hex')
       const body = { name, email, password }
-      await fetch(`/api/user`, {
+      await fetch(`/api/user/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),

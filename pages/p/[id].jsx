@@ -1,5 +1,5 @@
 import ReactMarkdown from 'react-markdown'
-import Layout from '../../components/Layout'
+import Layout from '../../components/Guest/Layout'
 import Router from 'next/router'
 
 async function publish(id) {

@@ -1,7 +1,7 @@
-import prisma from '../../lib/prisma'
+import prisma from '../../../lib/prisma'
 
-// POST /api/user
-// Required fields in body: name, email
+// POST /api/user/signup
+// Required fields in body: name, email, password
 export default async function handle(req, res) {
   const result = await prisma.user.create({
     data: {

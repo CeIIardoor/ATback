@@ -1,17 +1,12 @@
-import Layout from '../components/Layout'
-import Post from '../components/Post'
+import Layout from '../components/Guest/Layout'
 
 const Blog = props => {
   return (
     <Layout>
       <div className="page">
-        <h1>My Blog</h1>
+        <h1>IZT Voyage</h1>
         <main>
-          {props.feed.map(post => (
-            <div key={post.id} className="post">
-              <Post post={post} />
-            </div>
-          ))}
+          Se connecter au dashboard
         </main>
       </div>
       <style jsx>{`

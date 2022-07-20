@@ -19,11 +19,8 @@ const Header = () => {
         </Link>
       </div>
       <div className="right">
-        <Link href="/signup">
-          <a data-active={isActive('/signup')}>Signup</a>
-        </Link>
-        <Link href="/create">
-          <a data-active={isActive('/create')}>+ Create draft</a>
+        <Link href="/logout">
+          <a data-active={isActive('/logout')}>Se déconncter</a>
         </Link>
       </div>
       <style jsx>{`
