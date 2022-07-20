@@ -10,8 +10,6 @@ const SignUp = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
-
 
   const submitData = async e => {
     e.preventDefault()
@@ -55,13 +53,7 @@ const SignUp = () => {
             value={password}
           />
           <input
-            onChange={e => setConfirmPassword(e.target.value)}
-            placeholder="Confirmer mot de passe"
-            type="password"
-            value={confirmPassword}
-          />
-          <input
-            disabled={!name || !email || !password || !confirmPassword || password !== confirmPassword}
+            disabled={!name || !email || !password}
             type="submit"
             value="S'enregistrer"
           />
